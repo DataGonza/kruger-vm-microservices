@@ -25,7 +25,7 @@ A continuación todas las observaciones necesarias sobre este proyecto.
 - `cd kruger-vm-microservices/`
 - `unzip infrastructure.zip` (Son los datos para tener listo el servidor de autenticación y la base de datos)
 - `mvn clean install`
-- `sudo chown -R dgonzalez: ./infrastructure/` (El servidor de autentcacion necesita que esa carpeta pertenezca a dgonzalez, se necesita crear ese usuario si no existe)
+- `sudo chown -R dgonzalez: ./infrastructure/` (El servidor de autentcacion necesita que esa carpeta pertenezca a dgonzalez, se necesita crear ese usuario si no existe, se puede añadir con `sudo adduser dgonzalez`)
 - `sudo chown -R 5050:5050 ./infrastructure/pgadmin` (Es para que la interfaz de la base de datos tenga accesso a sus datos)
 - `sudo docker compose up` (Levanta el servidor de autenticación y la base de datos)
 - `mvn spring-boot:run` (Por favor espera un par de minutos antes de correr este comando, si puede acceder a http://localhost:8180/ es el momento adecuado)
