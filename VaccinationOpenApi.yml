@@ -1,0 +1,1154 @@
+openapi: 3.0.0
+info:
+  title: Vaccination Api
+  version: 1.0.0
+servers:
+  - url: http://{{api_server}}
+  - url: http://{{auth_server}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: Administrator
+  - name: User
+paths:
+  /admin/employee:
+    post:
+      tags:
+        - Administrator
+      summary: Save an employee
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                identifier: '0123456789'
+                firstName: David
+                middleName: Efrain
+                firstSurname: Gonzalez
+                secondSurname: Bonifaz
+                email: test@gmail.com
+                birthDay: '2012-04-28'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Length:
+              schema:
+                type: integer
+                example: '0'
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:19:32 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '400':
+          description: Bad Request
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain;charset=UTF-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '71'
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:19:51 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                El empleado con cédula: 0123456789 ya se encuentra en la base de
+                datos
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: Constrains
+                  value:
+                    - Los nombres solo pueden contener letras
+                    - Necesita proveer un cédula valida de 10 digitos
+                    - Ingrese un correo valido
+                example-1:
+                  summary: Missing fields
+                  value:
+                    - El primer nombre es obligatorio
+                    - Ingrese un correo valido
+                    - La cédula de identidad es obligatoria
+        '401':
+          description: Unauthorized
+          headers:
+            WWW-Authenticate:
+              schema:
+                type: string
+                example: >-
+                  Bearer realm="kruger", error="invalid_token",
+                  error_description="Failed to parse JWT"
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Length:
+              schema:
+                type: integer
+                example: '0'
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:18:56 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+    get:
+      tags:
+        - Administrator
+      summary: Query employees
+      parameters:
+        - name: vaccinationStatus
+          in: query
+          schema:
+            type: string
+          example: vacunado
+        - name: typesOfVaccine
+          in: query
+          schema:
+            type: string
+          example: Sputnik
+        - name: dateFromVaccination
+          in: query
+          schema:
+            type: string
+          example: '2010-03-18'
+        - name: dateToVaccination
+          in: query
+          schema:
+            type: string
+          example: '2023-03-18'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:28:48 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: Successful query
+                  value:
+                    - identifier: '0123456789'
+                      firstName: David
+                      middleName: Efrain
+                      firstSurname: Gonzalez
+                      secondSurname: Bonifaz
+                      email: test@gmail.com
+                      birthDay: null
+                      address: null
+                      phoneNumber: null
+                      vaccinationStatus: vacunado
+                      typesOfVaccine: Pfizer
+                      vaccinationDate: '2012-03-15T05:00:00.000+00:00'
+                      dosesCount: null
+                      released: null
+                example-1:
+                  summary: Empty query
+                  value: []
+  /admin/employee/0123456789:
+    get:
+      tags:
+        - Administrator
+      summary: Get employee
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:22:45 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                identifier: '0123456789'
+                firstName: David
+                middleName: Efrain
+                firstSurname: Gonzalez
+                secondSurname: Bonifaz
+                email: test@gmail.com
+                birthDay: null
+                address: null
+                phoneNumber: null
+                vaccinationStatus: null
+                typesOfVaccine: null
+                vaccinationDate: null
+                dosesCount: null
+                released: null
+        '404':
+          description: Not Found
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain;charset=UTF-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '71'
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:23:13 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                El empleado con cédula: 0123456787 no se encuentra en la base de
+                datos
+    put:
+      tags:
+        - Administrator
+      summary: Update employee
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                vaccinationStatus: vacunado
+                typesOfVaccine: Pfizer
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Length:
+              schema:
+                type: integer
+                example: '0'
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:25:20 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '400':
+          description: Bad Request
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain;charset=UTF-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '64'
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:26:10 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                example-0:
+                  summary: Bad vaccination status
+                  value: >-
+                    El estado de vacunación solo puede ser: [vacunado, sin
+                    vacunar]
+                example-1:
+                  summary: Bad type of vaccine
+                  value: >-
+                    El tipo de vacuna es erroneo, solo puede ser: [Pfizer,
+                    AstraZeneca, Johnson&Johnson, Sputnik]
+    delete:
+      tags:
+        - Administrator
+      summary: Delete employee
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Length:
+              schema:
+                type: integer
+                example: '0'
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:34:31 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '400':
+          description: Bad Request
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain;charset=UTF-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '71'
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:30:04 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                El empleado con cédula: 0123456789 no se encuentra en la base de
+                datos
+  /admin/employee/release/0123456789:
+    post:
+      tags:
+        - Administrator
+      summary: Release employee
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain;charset=UTF-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '97'
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:35:07 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                El empleado se dio de alta exitosamente, puede ver sus datos con
+                usuario y contraseña 0123456789
+        '400':
+          description: Bad Request
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain;charset=UTF-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '105'
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:35:25 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                El ya fue empleado fue dado de alta, puede ver sus datos con su
+                usuario y contraseña (Numero de cédula)
+        '404':
+          description: Not Found
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain;charset=UTF-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '71'
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:35:55 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                El empleado con cédula: 0123456781 no se encuentra en la base de
+                datos
+  /user:
+    get:
+      tags:
+        - User
+      summary: Get information
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:37:03 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                identifier: '0123456789'
+                firstName: David
+                middleName: Efrain
+                firstSurname: Gonzalez
+                secondSurname: Bonifaz
+                email: test@gmail.com
+                birthDay: '2012-04-27T05:00:00.000+00:00'
+                address: null
+                phoneNumber: null
+                vaccinationStatus: null
+                typesOfVaccine: null
+                vaccinationDate: null
+                dosesCount: null
+                released: true
+        '403':
+          description: Forbidden
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:36:26 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                timestamp: '2023-03-18T23:36:26.579+00:00'
+                status: 403
+                error: Forbidden
+                path: /user
+    put:
+      tags:
+        - User
+      summary: Update information
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                vaccinationStatus: vacunado
+                typesOfVaccine: Pfizer
+                vaccinationDate: '2012-12-24'
+                dosesCount: 5
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Length:
+              schema:
+                type: integer
+                example: '0'
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:38:16 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                example-0:
+                  summary: Successful
+                  value: null
+                example-1:
+                  summary: Successfully all data
+                  value: null
+        '400':
+          description: Bad Request
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain;charset=UTF-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '93'
+            Date:
+              schema:
+                type: string
+                example: Sat, 18 Mar 2023 23:37:50 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                example-0:
+                  summary: Need all data
+                  value: >-
+                    El tipo de vacuna es erroneo, solo puede ser: [Pfizer,
+                    AstraZeneca, Johnson&Johnson, Sputnik]
+                example-1:
+                  summary: Bad vaccine
+                  value: >-
+                    El tipo de vacuna es erroneo, solo puede ser: [Pfizer,
+                    AstraZeneca, Johnson&Johnson, Sputnik]
+  /realms/{realm}/protocol/openid-connect/token:
+    post:
+      tags:
+        - default
+      summary: Login
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: dgonzalez
+                password:
+                  type: string
+                  example: admin
+                client_id:
+                  type: string
+                  example: '{{client_id}}'
+                grant_type:
+                  type: string
+                  example: '{{grant_type}}'
+                scope:
+                  type: string
+                  example: '{{scope}}'
+      parameters:
+        - name: realm
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Referrer-Policy:
+              schema:
+                type: string
+                example: no-referrer
+            X-Frame-Options:
+              schema:
+                type: string
+                example: SAMEORIGIN
+            Strict-Transport-Security:
+              schema:
+                type: string
+                example: max-age=31536000; includeSubDomains
+            Cache-Control:
+              schema:
+                type: string
+                example: no-store
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            Set-Cookie:
+              schema:
+                type: string
+                example: >-
+                  KC_RESTART=; Version=1; Expires=Thu, 01-Jan-1970 00:00:10 GMT;
+                  Max-Age=0; Path=/realms/kruger/; HttpOnly
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            content-length:
+              schema:
+                type: integer
+                example: '3817'
+          content:
+            application/json:
+              schema:
+                type: object

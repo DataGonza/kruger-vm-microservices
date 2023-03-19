@@ -17,5 +17,4 @@ public class UpdateDataFromUser {
     private String typesOfVaccine;
     private Date vaccinationDate;
     private Integer dosesCount;
-    private Boolean released;
 }

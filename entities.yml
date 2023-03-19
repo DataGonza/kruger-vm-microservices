@@ -1,0 +1,38 @@
+# For administrator endpoints
+Employee:
+  identifier: String | Mandatory in Post / Banned in PUT
+  firstName: String | Mandatory in Post / Optional in PUT
+  middleName: String | Mandatory in Post / Optional in PUT
+  firstSurname: String | Mandatory in Post / Optional in PUT
+  secondSurname: String | Mandatory in Post / Optional in PUT
+  email: String | Mandatory in Post / Optional in PUT
+  birthDay: Date | Always optional
+  address: String | Always optional
+  phoneNumber: String | Always optional
+  vaccinationStatus: String | Always optional
+    - vacunado
+    - sin vacunar
+  typesOfVaccine: String | Always optional
+    - Sputnik
+    - AstraZeneca
+    - Pfizer
+    - Johnson&Johnson
+  vaccinationDate: Date | Always optional
+  dosesCount: Integer | Always optional
+  released: Boolean | Internal use, none effect if is sent
+
+# For employee endpoints
+UpdateDataFromUser:
+  birthDay: Date | Always optional
+  address: String | Always optional
+  phoneNumber: String | Always optional
+  vaccinationStatus: String | Always optional
+    - vacunado
+    - sin vacunar
+  typesOfVaccine: String | Mandatory if vaccinationStatus is vacunado
+    - Sputnik
+    - AstraZeneca
+    - Pfizer
+    - Johnson&Johnson
+  vaccinationDate: Date | Mandatory if vaccinationStatus is vacunado
+  dosesCount: Integer | Mandatory if vaccinationStatus is vacunado

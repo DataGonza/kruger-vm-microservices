@@ -1,0 +1,2367 @@
+{
+	"info": {
+		"_postman_id": "b8110237-b33d-41d3-ab03-b7b93f1640b4",
+		"name": "Vaccination Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26397133"
+	},
+	"item": [
+		{
+			"name": "Administrator",
+			"item": [
+				{
+					"name": "Save an employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"identifier\": \"0123456789\",\n    \"firstName\": \"David\",\n    \"middleName\": \"Efrain\",\n    \"firstSurname\": \"Gonzalez\",\n    \"secondSurname\": \"Bonifaz\",\n    \"email\": \"test@gmail.com\",\n    \"birthDay\": \"2012-04-28\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_server}}/admin/employee",
+							"host": [
+								"{{api_server}}"
+							],
+							"path": [
+								"admin",
+								"employee"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"identifier\": \"0123456789\",\n    \"firstName\": \"David\",\n    \"middleName\": \"Efrain\",\n    \"firstSurname\": \"Gonzalez\",\n    \"secondSurname\": \"Bonifaz\",\n    \"email\": \"test@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/admin/employee",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"employee"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer realm=\"kruger\", error=\"invalid_token\", error_description=\"Failed to parse JWT\""
+								},
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer realm=\"kruger\", error=\"invalid_token\", error_description=\"Failed to parse JWT\""
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:18:56 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"identifier\": \"0123456789\",\n    \"firstName\": \"David\",\n    \"middleName\": \"Efrain\",\n    \"firstSurname\": \"Gonzalez\",\n    \"secondSurname\": \"Bonifaz\",\n    \"email\": \"test@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_server}}/admin/employee",
+									"host": [
+										"{{api_server}}"
+									],
+									"path": [
+										"admin",
+										"employee"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:19:32 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Already Exist",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"identifier\": \"0123456789\",\n    \"firstName\": \"David\",\n    \"middleName\": \"Efrain\",\n    \"firstSurname\": \"Gonzalez\",\n    \"secondSurname\": \"Bonifaz\",\n    \"email\": \"test@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_server}}/admin/employee",
+									"host": [
+										"{{api_server}}"
+									],
+									"path": [
+										"admin",
+										"employee"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:19:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "El empleado con cédula: 0123456789 ya se encuentra en la base de datos"
+						},
+						{
+							"name": "Constrains",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"identifier\": \"01234756789\",\n    \"firstName\": \"David4\",\n    \"middleName\": \"Efrain\",\n    \"firstSurname\": \"Gonzalez\",\n    \"secondSurname\": \"Bonifaz\",\n    \"email\": \"testgmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_server}}/admin/employee",
+									"host": [
+										"{{api_server}}"
+									],
+									"path": [
+										"admin",
+										"employee"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:20:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    \"Los nombres solo pueden contener letras\",\n    \"Necesita proveer un cédula valida de 10 digitos\",\n    \"Ingrese un correo valido\"\n]"
+						},
+						{
+							"name": "Missing fields",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"middleName\": \"Efrain\",\n    \"firstSurname\": \"Gonzalez\",\n    \"secondSurname\": \"Bonifaz\",\n    \"email\": \"testgmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_server}}/admin/employee",
+									"host": [
+										"{{api_server}}"
+									],
+									"path": [
+										"admin",
+										"employee"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:21:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    \"El primer nombre es obligatorio\",\n    \"Ingrese un correo valido\",\n    \"La cédula de identidad es obligatoria\"\n]"
+						}
+					]
+				},
+				{
+					"name": "Get employee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_server}}/admin/employee/0123456789",
+							"host": [
+								"{{api_server}}"
+							],
+							"path": [
+								"admin",
+								"employee",
+								"0123456789"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/admin/employee/0123456789",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"employee",
+										"0123456789"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:22:45 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"identifier\": \"0123456789\",\n    \"firstName\": \"David\",\n    \"middleName\": \"Efrain\",\n    \"firstSurname\": \"Gonzalez\",\n    \"secondSurname\": \"Bonifaz\",\n    \"email\": \"test@gmail.com\",\n    \"birthDay\": null,\n    \"address\": null,\n    \"phoneNumber\": null,\n    \"vaccinationStatus\": null,\n    \"typesOfVaccine\": null,\n    \"vaccinationDate\": null,\n    \"dosesCount\": null,\n    \"released\": null\n}"
+						},
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api_server}}/admin/employee/0123456787",
+									"host": [
+										"{{api_server}}"
+									],
+									"path": [
+										"admin",
+										"employee",
+										"0123456787"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:23:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "El empleado con cédula: 0123456787 no se encuentra en la base de datos"
+						}
+					]
+				},
+				{
+					"name": "Get all employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_server}}/admin/employee",
+							"host": [
+								"{{api_server}}"
+							],
+							"path": [
+								"admin",
+								"employee"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/admin/employee",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"employee"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:24:00 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"identifier\": \"0123456789\",\n        \"firstName\": \"David\",\n        \"middleName\": \"Efrain\",\n        \"firstSurname\": \"Gonzalez\",\n        \"secondSurname\": \"Bonifaz\",\n        \"email\": \"test@gmail.com\",\n        \"birthDay\": null,\n        \"address\": null,\n        \"phoneNumber\": null,\n        \"vaccinationStatus\": null,\n        \"typesOfVaccine\": null,\n        \"vaccinationDate\": null,\n        \"dosesCount\": null,\n        \"released\": null\n    },\n    {\n        \"identifier\": \"0123456781\",\n        \"firstName\": \"Naomi\",\n        \"middleName\": \"Irma\",\n        \"firstSurname\": \"Gonzalez\",\n        \"secondSurname\": \"Bonifaz\",\n        \"email\": \"test@gmail.com\",\n        \"birthDay\": \"2012-04-27T05:00:00.000+00:00\",\n        \"address\": null,\n        \"phoneNumber\": null,\n        \"vaccinationStatus\": null,\n        \"typesOfVaccine\": null,\n        \"vaccinationDate\": null,\n        \"dosesCount\": null,\n        \"released\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Update employee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vaccinationStatus\": \"vacunado\",\n    \"typesOfVaccine\": \"Pfizer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_server}}/admin/employee/0123456789",
+							"host": [
+								"{{api_server}}"
+							],
+							"path": [
+								"admin",
+								"employee",
+								"0123456789"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vaccinationDate\": \"2012-03-16\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/admin/employee/0123456789",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"employee",
+										"0123456789"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:25:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Bad vaccination status",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vaccinationStatus\": \"vacu\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_server}}/admin/employee/0123456789",
+									"host": [
+										"{{api_server}}"
+									],
+									"path": [
+										"admin",
+										"employee",
+										"0123456789"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:26:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "El estado de vacunación solo puede ser: [vacunado, sin vacunar]"
+						},
+						{
+							"name": "Bad type of vaccine",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"typesOfVaccine\": \"vacu\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_server}}/admin/employee/0123456789",
+									"host": [
+										"{{api_server}}"
+									],
+									"path": [
+										"admin",
+										"employee",
+										"0123456789"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "93"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:26:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "El tipo de vacuna es erroneo, solo puede ser: [Pfizer, AstraZeneca, Johnson&Johnson, Sputnik]"
+						}
+					]
+				},
+				{
+					"name": "Query employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_server}}/admin/employee?vaccinationStatus=vacunado&typesOfVaccine=Sputnik&dateFromVaccination=2010-03-18&dateToVaccination=2023-03-18",
+							"host": [
+								"{{api_server}}"
+							],
+							"path": [
+								"admin",
+								"employee"
+							],
+							"query": [
+								{
+									"key": "vaccinationStatus",
+									"value": "vacunado"
+								},
+								{
+									"key": "typesOfVaccine",
+									"value": "Sputnik"
+								},
+								{
+									"key": "dateFromVaccination",
+									"value": "2010-03-18"
+								},
+								{
+									"key": "dateToVaccination",
+									"value": "2023-03-18"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful query",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/admin/employee?vaccinationStatus=vacunado&dateFromVaccination=2010-03-18",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"employee"
+									],
+									"query": [
+										{
+											"key": "vaccinationStatus",
+											"value": "vacunado"
+										},
+										{
+											"key": "typesOfVaccine",
+											"value": "Sputnik",
+											"disabled": true
+										},
+										{
+											"key": "dateFromVaccination",
+											"value": "2010-03-18"
+										},
+										{
+											"key": "dateToVaccination",
+											"value": "2023-03-18",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:28:48 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"identifier\": \"0123456789\",\n        \"firstName\": \"David\",\n        \"middleName\": \"Efrain\",\n        \"firstSurname\": \"Gonzalez\",\n        \"secondSurname\": \"Bonifaz\",\n        \"email\": \"test@gmail.com\",\n        \"birthDay\": null,\n        \"address\": null,\n        \"phoneNumber\": null,\n        \"vaccinationStatus\": \"vacunado\",\n        \"typesOfVaccine\": \"Pfizer\",\n        \"vaccinationDate\": \"2012-03-15T05:00:00.000+00:00\",\n        \"dosesCount\": null,\n        \"released\": null\n    }\n]"
+						},
+						{
+							"name": "Empty query",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api_server}}/admin/employee?vaccinationStatus=vacunado&typesOfVaccine=Sputnik&dateFromVaccination=2010-03-18",
+									"host": [
+										"{{api_server}}"
+									],
+									"path": [
+										"admin",
+										"employee"
+									],
+									"query": [
+										{
+											"key": "vaccinationStatus",
+											"value": "vacunado"
+										},
+										{
+											"key": "typesOfVaccine",
+											"value": "Sputnik"
+										},
+										{
+											"key": "dateFromVaccination",
+											"value": "2010-03-18"
+										},
+										{
+											"key": "dateToVaccination",
+											"value": "2023-03-18",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:29:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[]"
+						}
+					]
+				},
+				{
+					"name": "Delete employee",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_server}}/admin/employee/0123456789",
+							"host": [
+								"{{api_server}}"
+							],
+							"path": [
+								"admin",
+								"employee",
+								"0123456789"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/admin/employee/0123456789",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"employee",
+										"0123456789"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:30:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "El empleado con cédula: 0123456789 no se encuentra en la base de datos"
+						},
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{api_server}}/admin/employee/0123456789",
+									"host": [
+										"{{api_server}}"
+									],
+									"path": [
+										"admin",
+										"employee",
+										"0123456789"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:34:31 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Release employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{api_server}}/admin/employee/release/0123456789",
+							"host": [
+								"{{api_server}}"
+							],
+							"path": [
+								"admin",
+								"employee",
+								"release",
+								"0123456789"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/admin/employee/release/0123456789",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"employee",
+										"release",
+										"0123456789"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "97"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:35:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "El empleado se dio de alta exitosamente, puede ver sus datos con usuario y contraseña 0123456789"
+						},
+						{
+							"name": "Already release",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{api_server}}/admin/employee/release/0123456789",
+									"host": [
+										"{{api_server}}"
+									],
+									"path": [
+										"admin",
+										"employee",
+										"release",
+										"0123456789"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "105"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:35:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "El ya fue empleado fue dado de alta, puede ver sus datos con su usuario y contraseña (Numero de cédula)"
+						},
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{api_server}}/admin/employee/release/0123456781",
+									"host": [
+										"{{api_server}}"
+									],
+									"path": [
+										"admin",
+										"employee",
+										"release",
+										"0123456781"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:35:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "El empleado con cédula: 0123456781 no se encuentra en la base de datos"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get information",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_server}}/user",
+							"host": [
+								"{{api_server}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:36:26 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": \"2023-03-18T23:36:26.579+00:00\",\n    \"status\": 403,\n    \"error\": \"Forbidden\",\n    \"path\": \"/user\"\n}"
+						},
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api_server}}/user",
+									"host": [
+										"{{api_server}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:37:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"identifier\": \"0123456789\",\n    \"firstName\": \"David\",\n    \"middleName\": \"Efrain\",\n    \"firstSurname\": \"Gonzalez\",\n    \"secondSurname\": \"Bonifaz\",\n    \"email\": \"test@gmail.com\",\n    \"birthDay\": \"2012-04-27T05:00:00.000+00:00\",\n    \"address\": null,\n    \"phoneNumber\": null,\n    \"vaccinationStatus\": null,\n    \"typesOfVaccine\": null,\n    \"vaccinationDate\": null,\n    \"dosesCount\": null,\n    \"released\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Update information",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vaccinationStatus\": \"vacunado\",\n    \"typesOfVaccine\": \"Pfizer\",\n    \"vaccinationDate\": \"2012-12-24\",\n    \"dosesCount\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_server}}/user",
+							"host": [
+								"{{api_server}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Need all data",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vaccinationStatus\": \"vacunado\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "93"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:37:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "El tipo de vacuna es erroneo, solo puede ser: [Pfizer, AstraZeneca, Johnson&Johnson, Sputnik]"
+						},
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vaccinationStatus\": \"sin vacunar\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_server}}/user",
+									"host": [
+										"{{api_server}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:38:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Bad vaccine",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vaccinationStatus\": \"vacunado\",\n    \"typesOfVaccine\": \"as\",\n    \"vaccinationDate\": \"2012-12-24\",\n    \"dosesCount\": 5\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_server}}/user",
+									"host": [
+										"{{api_server}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "93"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:38:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "El tipo de vacuna es erroneo, solo puede ser: [Pfizer, AstraZeneca, Johnson&Johnson, Sputnik]"
+						},
+						{
+							"name": "Successfully all data",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vaccinationStatus\": \"vacunado\",\n    \"typesOfVaccine\": \"Pfizer\",\n    \"vaccinationDate\": \"2012-12-24\",\n    \"dosesCount\": 5\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_server}}/user",
+									"host": [
+										"{{api_server}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 23:38:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json();",
+							"pm.collectionVariables.set(\"access_token\", response.access_token)",
+							"pm.collectionVariables.set(\"refresh_token\", response.refresh_token)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "dgonzalez",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "{{client_id}}",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "{{grant_type}}",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "{{scope}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{auth_server}}/realms/{{realm}}/protocol/openid-connect/token",
+					"host": [
+						"{{auth_server}}"
+					],
+					"path": [
+						"realms",
+						"{{realm}}",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "0123456789",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "0123456789",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "vm-microservices",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "openid",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8180/realms/kruger/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8180",
+							"path": [
+								"realms",
+								"kruger",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "KEYCLOAK_LOCALE=; Version=1; Comment=Expiring cookie; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Max-Age=0; Path=/realms/kruger/; HttpOnly"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "KC_RESTART=; Version=1; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Max-Age=0; Path=/realms/kruger/; HttpOnly"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "content-length",
+							"value": "3817"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJEazZKZWhRYXoyVEM1TTRWZXFLSndaQmQ1RHB4X3FYM09DYWlycDM5c1hvIn0.eyJleHAiOjE2NzkxODI5MjAsImlhdCI6MTY3OTE4MjYyMCwianRpIjoiZjRiMWY3ZjgtYjlkMi00ZjBkLWFiYmUtNmZiYzZlNjg2YWJjIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9rcnVnZXIiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMzYwMmIzY2ItY2QxOC00YTQ3LWFlNjUtN2VlNWQ4NDM4NmNlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoidm0tbWljcm9zZXJ2aWNlcyIsInNlc3Npb25fc3RhdGUiOiIwODFmNmQ0ZC1iY2QxLTQxYzEtYTZlYi1hZGU5ZjFmZmM5OTUiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIi8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLWtydWdlciIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJ1c2VyIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBtaWNyb3Byb2ZpbGUtand0IGVtYWlsIiwic2lkIjoiMDgxZjZkNGQtYmNkMS00MWMxLWE2ZWItYWRlOWYxZmZjOTk1IiwidXBuIjoiMDEyMzQ1Njc4OSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IkRhdmlkIEdvbnphbGV6IiwiZ3JvdXBzIjpbImRlZmF1bHQtcm9sZXMta3J1Z2VyIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsInVzZXIiXSwicHJlZmVycmVkX3VzZXJuYW1lIjoiMDEyMzQ1Njc4OSIsImdpdmVuX25hbWUiOiJEYXZpZCIsImZhbWlseV9uYW1lIjoiR29uemFsZXoiLCJlbWFpbCI6InRlc3RAZ21haWwuY29tIn0.Uz4Vh5RyFTaQA8X2QGSEpHxhmd4-xlih14Neke77tr597pX1wi1dz8FgmQZYw_wnjFfwc7bNhpmMq-XQHHc24I3fhmcZMSplal_0Neh7QIrqSPpylkl4eXEhmkRG3jVH39TopaisGl0p2TRoJJ97VBPZHqLH7jzI0t27pJsYyr_9gBZ4_gqd9Vll4YWRcvhG6Tjg1oGu4z0njaHMsyVNcowqkuM23RKk7-lyu1EXPoAlO1UCMTmkJqvhas5rnpyFcAD3p0IAvKefboNou6mCl88gSL_vFT183evqmB6AeuED1zlTIpsJrp2h9bdPCjTF41ztVFFZqeFScb61E8qjJQ\",\n    \"expires_in\": 300,\n    \"refresh_expires_in\": 1800,\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI1MDgwMDkwNi05MDM4LTRkZWQtODM5My03NjA4MTY1ZDU2MzYifQ.eyJleHAiOjE2NzkxODQ0MjAsImlhdCI6MTY3OTE4MjYyMCwianRpIjoiNzJkOWUwYzMtZDcyOC00NDI0LWE3NjUtY2E3MzA4MjIwYmE2IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9rcnVnZXIiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgxODAvcmVhbG1zL2tydWdlciIsInN1YiI6IjM2MDJiM2NiLWNkMTgtNGE0Ny1hZTY1LTdlZTVkODQzODZjZSIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJ2bS1taWNyb3NlcnZpY2VzIiwic2Vzc2lvbl9zdGF0ZSI6IjA4MWY2ZDRkLWJjZDEtNDFjMS1hNmViLWFkZTlmMWZmYzk5NSIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgbWljcm9wcm9maWxlLWp3dCBlbWFpbCIsInNpZCI6IjA4MWY2ZDRkLWJjZDEtNDFjMS1hNmViLWFkZTlmMWZmYzk5NSJ9.Ahpb9iHzliaZb7QxmhXO83B7p8GZEH5RPhW8xqeSxhQ\",\n    \"token_type\": \"Bearer\",\n    \"id_token\": \"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJEazZKZWhRYXoyVEM1TTRWZXFLSndaQmQ1RHB4X3FYM09DYWlycDM5c1hvIn0.eyJleHAiOjE2NzkxODI5MjAsImlhdCI6MTY3OTE4MjYyMCwiYXV0aF90aW1lIjowLCJqdGkiOiI5NzhhOTg1NC1mMzUxLTRhNDUtOWJhZi1jYjdjYzRiNmMzZWQiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgxODAvcmVhbG1zL2tydWdlciIsImF1ZCI6InZtLW1pY3Jvc2VydmljZXMiLCJzdWIiOiIzNjAyYjNjYi1jZDE4LTRhNDctYWU2NS03ZWU1ZDg0Mzg2Y2UiLCJ0eXAiOiJJRCIsImF6cCI6InZtLW1pY3Jvc2VydmljZXMiLCJzZXNzaW9uX3N0YXRlIjoiMDgxZjZkNGQtYmNkMS00MWMxLWE2ZWItYWRlOWYxZmZjOTk1IiwiYXRfaGFzaCI6IlFZR3ZkQWtmaEVmZk15S1BOVHl5cmciLCJhY3IiOiIxIiwic2lkIjoiMDgxZjZkNGQtYmNkMS00MWMxLWE2ZWItYWRlOWYxZmZjOTk1IiwidXBuIjoiMDEyMzQ1Njc4OSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IkRhdmlkIEdvbnphbGV6IiwiZ3JvdXBzIjpbImRlZmF1bHQtcm9sZXMta3J1Z2VyIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsInVzZXIiXSwicHJlZmVycmVkX3VzZXJuYW1lIjoiMDEyMzQ1Njc4OSIsImdpdmVuX25hbWUiOiJEYXZpZCIsImZhbWlseV9uYW1lIjoiR29uemFsZXoiLCJlbWFpbCI6InRlc3RAZ21haWwuY29tIn0.U2xOXGxZ6F-s5eX2IanPV_G6t1zbMOVwJWOHq2WV0qh9OCL3nD2FFjZB5TMwA1QpIkVb62igs2fnQgnBg76Zop42no3gEZ91xhdbbiuwGqdfYtifFTFZit1bKSxpL9xD3dvdgGS3efGx2dd_1jX12bVtYtaWo6DMrCyaqkPDVOR2r-mK14lSyHXYJVY6fwMEEtGZb6iA17mi8ZEyV8Uj9JgspAXMfMq0ru2WGcmkcoTo2UQrbC8SdipbcKoVqYU2u0pr7b-_Kx2ryzPwoWyorCfjMH79IP83Zsm1h_Z-yLkt1-cGQWM-fJ2b7UWCiIZYc4BZ3cl2VRKT1sXwqUV8rA\",\n    \"not-before-policy\": 0,\n    \"session_state\": \"081f6d4d-bcd1-41c1-a6eb-ade9f1ffc995\",\n    \"scope\": \"openid profile microprofile-jwt email\"\n}"
+				},
+				{
+					"name": "Login admin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "dgonzalez",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "{{grant_type}}",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "{{scope}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{auth_server}}/realms/{{realm}}/protocol/openid-connect/token",
+							"host": [
+								"{{auth_server}}"
+							],
+							"path": [
+								"realms",
+								"{{realm}}",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "KEYCLOAK_LOCALE=; Version=1; Comment=Expiring cookie; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Max-Age=0; Path=/realms/kruger/; HttpOnly"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "KC_RESTART=; Version=1; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Max-Age=0; Path=/realms/kruger/; HttpOnly"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "content-length",
+							"value": "3801"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJEazZKZWhRYXoyVEM1TTRWZXFLSndaQmQ1RHB4X3FYM09DYWlycDM5c1hvIn0.eyJleHAiOjE2NzkxODMwODUsImlhdCI6MTY3OTE4Mjc4NSwianRpIjoiNGU0YjE4MzUtZmE4Mi00Y2NjLTljNWEtZWVmMTIxZGViODQ3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9rcnVnZXIiLCJhdWQiOlsicmVhbG0tbWFuYWdlbWVudCIsImFjY291bnQiXSwic3ViIjoiNjdhNDNjNDctNzNjNy00MzY4LTg5ODYtODFmOTNmMzdjODRjIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoidm0tbWljcm9zZXJ2aWNlcyIsInNlc3Npb25fc3RhdGUiOiI3Y2IyNTVkZC01ODc1LTQxNjAtYWZlNS1jMmQ2YWI2MzY4YjEiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIi8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJhZG1pbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7InJlYWxtLW1hbmFnZW1lbnQiOnsicm9sZXMiOlsidmlldy1pZGVudGl0eS1wcm92aWRlcnMiLCJ2aWV3LXJlYWxtIiwibWFuYWdlLWlkZW50aXR5LXByb3ZpZGVycyIsImltcGVyc29uYXRpb24iLCJyZWFsbS1hZG1pbiIsImNyZWF0ZS1jbGllbnQiLCJtYW5hZ2UtdXNlcnMiLCJxdWVyeS1yZWFsbXMiLCJ2aWV3LWF1dGhvcml6YXRpb24iLCJxdWVyeS1jbGllbnRzIiwicXVlcnktdXNlcnMiLCJtYW5hZ2UtZXZlbnRzIiwibWFuYWdlLXJlYWxtIiwidmlldy1ldmVudHMiLCJ2aWV3LXVzZXJzIiwidmlldy1jbGllbnRzIiwibWFuYWdlLWF1dGhvcml6YXRpb24iLCJtYW5hZ2UtY2xpZW50cyIsInF1ZXJ5LWdyb3VwcyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBtaWNyb3Byb2ZpbGUtand0IGVtYWlsIiwic2lkIjoiN2NiMjU1ZGQtNTg3NS00MTYwLWFmZTUtYzJkNmFiNjM2OGIxIiwidXBuIjoiZGdvbnphbGV6IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJncm91cHMiOlsiYWRtaW4iXSwicHJlZmVycmVkX3VzZXJuYW1lIjoiZGdvbnphbGV6In0.CnB0-pIK6vWcR--dyA6N08v-Dq1ff3OKWAFdn9S2VKNevR7qDcKxLHuVXXK5u2OgV6jjgszc0S2TCalHZKHs9xG92r5cOKUPOEblKebYPNFGQupuYdEv_LW_rfHsuM1OKP-77RW7rbMJeYd2bUmoiM1OHLS4eSR5k3NcLs7gPRZXt70TqrpMQWf8FxJLbaB6pP2pQoqgY7C0tJjamZYZJHCFbMBzCBAKQb4dQaNr7oVRJ4EbjX8MKWwDYf7Huia6pNLItWePldlofSe4DvSH4aeVCwjBqMn9tX-5B40v5h9G8LR8KRZXWHWsAyNfF1YaUjecYUtQhcNWCL88fZehEQ\",\n    \"expires_in\": 300,\n    \"refresh_expires_in\": 1800,\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI1MDgwMDkwNi05MDM4LTRkZWQtODM5My03NjA4MTY1ZDU2MzYifQ.eyJleHAiOjE2NzkxODQ1ODUsImlhdCI6MTY3OTE4Mjc4NSwianRpIjoiMTU1OGNjMDktYWM1Mi00MjZhLWExNGUtMGU4NzM2ZTUzMmM2IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9rcnVnZXIiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgxODAvcmVhbG1zL2tydWdlciIsInN1YiI6IjY3YTQzYzQ3LTczYzctNDM2OC04OTg2LTgxZjkzZjM3Yzg0YyIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJ2bS1taWNyb3NlcnZpY2VzIiwic2Vzc2lvbl9zdGF0ZSI6IjdjYjI1NWRkLTU4NzUtNDE2MC1hZmU1LWMyZDZhYjYzNjhiMSIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgbWljcm9wcm9maWxlLWp3dCBlbWFpbCIsInNpZCI6IjdjYjI1NWRkLTU4NzUtNDE2MC1hZmU1LWMyZDZhYjYzNjhiMSJ9.DSP-OLK_kDm7OrdzGP3GUyy111IYxv_h04ftdJI4NRw\",\n    \"token_type\": \"Bearer\",\n    \"id_token\": \"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJEazZKZWhRYXoyVEM1TTRWZXFLSndaQmQ1RHB4X3FYM09DYWlycDM5c1hvIn0.eyJleHAiOjE2NzkxODMwODUsImlhdCI6MTY3OTE4Mjc4NSwiYXV0aF90aW1lIjowLCJqdGkiOiI5ZDk5OTU1ZC1kMWRjLTQxODQtOTE1NS00OTAwMzFmMmM2OGYiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgxODAvcmVhbG1zL2tydWdlciIsImF1ZCI6InZtLW1pY3Jvc2VydmljZXMiLCJzdWIiOiI2N2E0M2M0Ny03M2M3LTQzNjgtODk4Ni04MWY5M2YzN2M4NGMiLCJ0eXAiOiJJRCIsImF6cCI6InZtLW1pY3Jvc2VydmljZXMiLCJzZXNzaW9uX3N0YXRlIjoiN2NiMjU1ZGQtNTg3NS00MTYwLWFmZTUtYzJkNmFiNjM2OGIxIiwiYXRfaGFzaCI6IlQwMEdPZ1hkZmlMR1pQUFo2V1ZjdFEiLCJhY3IiOiIxIiwic2lkIjoiN2NiMjU1ZGQtNTg3NS00MTYwLWFmZTUtYzJkNmFiNjM2OGIxIiwidXBuIjoiZGdvbnphbGV6IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJncm91cHMiOlsiYWRtaW4iXSwicHJlZmVycmVkX3VzZXJuYW1lIjoiZGdvbnphbGV6In0.wlwrpYbTqP-IuvbEua4DTFmL4ZvfktGp2WM-fQvokaP0Ucehz0g8X_Uii7E_HMFfwmn55oGs-iC3mQok7Docf3ly1fMpdwTks2RF2x-DgVdG0424TWqm-vdr98cVA7BNN1D87n9Wo-a3y7HAaAEMrNChoJCm2fiShOb4gLc86uPbOZvxnrIgFy-eLH4vpZoQIDWN1jga32A-Ca2AAOTJXVbswHFUUPFMyGxS6WVMLitanNgPhq7c_fA2qur2xlVM_riDhIkvFoNrYkWBVZv5SzID0HxFIwwuHG0k_yvJjGOFPYJE8RzCB_PgqVe1eG6x3xaFrKK48UytcICIQLH3GA\",\n    \"not-before-policy\": 0,\n    \"session_state\": \"7cb255dd-5875-4160-afe5-c2d6ab6368b1\",\n    \"scope\": \"openid profile microprofile-jwt email\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.sendRequest({",
+					"    url: \"http://localhost:8180/realms/kruger/protocol/openid-connect/token\",",
+					"    method: 'POST',",
+					"    body: {",
+					"          mode: 'urlencoded',",
+					"          urlencoded: [",
+					"            {key: \"grant_type\", value: \"refresh_token\", disabled: false},",
+					"            {key: \"client_id\", value: pm.collectionVariables.get(\"client_id\"), disabled: false},",
+					"            {key: \"refresh_token\", value: pm.collectionVariables.get(\"refresh_token\"), disabled: false}",
+					"        ]",
+					"      }",
+					"}, function (err, response) {",
+					"    let data = response.json();",
+					"    pm.collectionVariables.set(\"access_token\", data.access_token)",
+					"    pm.collectionVariables.set(\"refresh_token\", data.refresh_token)",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "access_token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "refresh_token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "auth_server",
+			"value": "http://localhost:8180",
+			"type": "string"
+		},
+		{
+			"key": "api_server",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "client_id",
+			"value": "vm-microservices",
+			"type": "string"
+		},
+		{
+			"key": "scope",
+			"value": "openid",
+			"type": "string"
+		},
+		{
+			"key": "realm",
+			"value": "kruger",
+			"type": "string"
+		},
+		{
+			"key": "grant_type",
+			"value": "password",
+			"type": "string"
+		}
+	]
+}

@@ -1,12 +1,9 @@
 package com.kruger.application.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.kruger.application.enums.VaccinationStatus;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

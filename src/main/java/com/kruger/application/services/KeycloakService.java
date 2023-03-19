@@ -1,6 +1,5 @@
 package com.kruger.application.services;
 
-import com.kruger.application.enums.EmployeeErrorMessages;
 import com.kruger.application.models.Employee;
 import org.keycloak.admin.client.CreatedResponseUtil;
 import org.keycloak.admin.client.Keycloak;
@@ -65,8 +64,7 @@ public class KeycloakService {
         UsersResource usersResource = keycloak.realm("kruger").users();
         List<UserRepresentation> userRepresentations = usersResource.search(identifier);
         if (userRepresentations.isEmpty()) {
-            throw new IllegalStateException(
-                    String.format(EmployeeErrorMessages.NOT_FOUND_MESSAGE.getMessage(), identifier));
+            return;
         }
         UserRepresentation userToDelete = userRepresentations.get(0);
         usersResource.get(userToDelete.getId()).remove();
